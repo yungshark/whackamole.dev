@@ -1,0 +1,66 @@
+<html>
+<head>
+	<title>Mole Hole</title>
+	<link rel="stylesheet" href="/css/index.css">
+</head>
+<body>
+	
+	<center>
+	This my Mole Hole Game
+	<br>
+	<img src="/img/mole.png">
+	<br>
+		<div class="mole-hole" id="block1"></div>
+		<div class="mole-hole" id="block2"></div>
+
+		<div class="mole-hole" id="block3"></div>
+		<div class="mole-hole" id="block4"></div>
+	<br>
+	It'll work in a bit, I'm just really tired and my head hurts a lot right now
+	</center>
+<script>
+	// starting score
+	var score = 0
+		
+	// function to add a comment
+		var comment = function(){
+			if (score == 10){
+				comment = "Good shot, kid"
+			} else if (score == 20){
+				comment = "The force is strong with you"
+			} else if (score == 30){
+				comment = "Why are you playing these padawan games, Jedi?"
+			} else if (score == 40){
+				comment = "Clearly you're splicing."
+			} else if (score == 50){
+				comment = "I'm going home."
+			} else if (score == 100){
+				comment = "Okay, now you're just changing the code around to be funny."
+			}
+		} 
+
+	// how long the mole waits before resurfacing
+	var waitTime = 2000
+
+	//the mole
+	var mole = getImage("/img/moley");
+
+	// the function to pick a mole hole
+	var randomHole = function(){
+		return math.floor(math.random(0,9));
+	};
+
+	// The game mechanicals
+	var game = function() {
+
+		var hole = holeClicked();
+
+		if (hole === mole) {
+			mole = -1;
+			score++;
+			return score
+		}
+	}
+</script>
+</body>
+</html>

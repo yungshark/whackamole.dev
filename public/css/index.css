@@ -1,0 +1,21 @@
+body{
+	background-color:burlywood;
+	font-family:"Arial Black", Gadget, sans-serif;
+	vertical-align:bottom;
+}
+	div{
+	width:200px;
+	height:200px;
+	border:2px solid green;
+	margin:2px;
+	background-image:url("/img/grass.png");
+	background-size:80px 60px;
+	float:left;
+	border-radius:200px;
+	padding:1px;
+	display:block;
+	position:relative;
+}
+#block3{
+	
+}
