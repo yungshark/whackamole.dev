@@ -10,17 +10,76 @@
 	<br>
 	<img src="/img/mole.png">
 	<br>
-		<div class="mole-hole" id="block1"></div>
-		<div class="mole-hole" id="block2"></div>
-
-		<div class="mole-hole" id="block3"></div>
-		<div class="mole-hole" id="block4"></div>
+		<div class="mole-hole" data-hole="block1"></div>
+		<div class="mole-hole" data-hole="block2"></div>
+		<div class="mole-hole" data-hole="block3"></div>
+		<div class="mole-hole" data-hole="block4"></div>
+		<div class="mole-hole" data-hole="block5"></div>
+		<div class="mole-hole" data-hole="block6"></div>
+		<div class="mole-hole" data-hole="block7"></div>
+		<div class="mole-hole" data-hole="block8"></div>
+		<div class="mole-hole" data-hole="block9"></div>
 	<br>
-	It'll work in a bit, I'm just really tired and my head hurts a lot right now
+	<div>
+		<button id="start">Start!</button>
+	</div>
+	<div>
+		<p id="score">Score:</p>
+	</div>
+	almost done. got depressed in class over some stuff.
 	</center>
 <script>
-	// starting score
-	var score = 0
+	
+	var mole = getImage("/img/moley");
+	var score = 0;
+	var comment = "";
+
+	$("#start").one('click', function(){
+		startGame();
+		$("#start").html("Game Started");
+		$("#moley").hide();
+	});
+
+	function startGame(){
+		var intervalID = setInterval(function(){
+			$(".timer").html("Time left: " + timer);
+			timer -= 1;
+			if timer == 0{
+				clearInterval(intervalId);
+				$("#score").html("Your score: " + score);
+			}
+		
+		}, 1000);
+	var moles= setInterval(function(){
+		var random = randomNumber(1,9);
+		moleup(random);
+		if(timer === 0){
+			$("score").html("Score: " + score);
+			$("timer").html("Time: "+ timer);
+			clearInterval(moley);
+			end();
+		}
+	}, 1000);
+		
+	}
+
+	function randomNumber(min, max) {
+		return Math.floor(Math.random() * (max - min +1)) +min;
+	}
+
+	function end() {
+		console.log(score);
+			if(score >= highScore){
+				$("#highScore").html("High Score: " + score);
+				highScore = score;
+				score = 0;
+				$("#score").html("Score: " + score);
+
+			} else {
+				score = 0;
+			}
+	}
+
 		
 	// function to add a comment
 		var comment = function(){
@@ -38,18 +97,8 @@
 				comment = "Okay, now you're just changing the code around to be funny."
 			}
 		} 
-
-	// how long the mole waits before resurfacing
-	var waitTime = 2000
-
-	//the mole
-	var mole = getImage("/img/moley");
-
-	// the function to pick a mole hole
-	var randomHole = function(){
-		return math.floor(math.random(0,9));
-	};
-
+	
+	}
 	// The game mechanicals
 	var game = function() {
 
@@ -62,5 +111,6 @@
 		}
 	}
 </script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
 </body>
 </html>
