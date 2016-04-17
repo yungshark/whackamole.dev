@@ -21,16 +21,17 @@
 		<div class="mole-hole" data-id="8"></div>
 	<br>
 	<div>
-		<button id="start">Start!</button>
+		<button id="start" class="start">Start!</button>
 	</div>
 	<div>
 		<p id="score">Score:</p>
+		<p id="comment"
 	</div>
-	almost done. got depressed in class over some stuff.
 	</center>
 <script>
 	
-	var mole = getImage("/img/moley.png");
+	// var mole = getImage("/img/moley.png");
+	var moleArray = []
 	var score = 0;
 	var comment = "";
 
@@ -44,7 +45,7 @@
 		var intervalID = setInterval(function(){
 			$(".timer").html("Time left: " + timer);
 			timer -= 1;
-			if timer == 0{
+			if (timer == 0){
 				clearInterval(intervalId);
 				$("#score").html("Your score: " + score);
 			}
@@ -98,7 +99,7 @@
 			}
 		} 
 	
-	}
+	
 	// The game mechanicals
 	var game = function() {
 
